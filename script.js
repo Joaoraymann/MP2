@@ -75,3 +75,5 @@ function mostraPergunta() {
 function mostraAlternativas() {}
 
 mostraPergunta();
+
+(const alternativa of perguntaAtual.alternativas)
