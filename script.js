@@ -68,9 +68,40 @@ function respostaSelecionada(opcaoSelecionada) {
   const afirmacoes = opcaoSelecionada.afirmacoes;
   historiaFinal += afirmacoes + " ";
   atual++;
+  mostraPergunta();function respostaSelecionada(opcaoSelecionada) {
+  const afirmacao = opcaoSelecionada.afirmacao;
+  historiaFinal += afirmacao + " ";
+  atual++;
   mostraPergunta();
+}
 }
 
 let atual = 0;
 let perguntaAtual;
 let historiaFinal = "";
+
+function mostraPergunta() {
+  if (atual >= perguntas.length) {
+    mostraResultado();
+    return;
+  }
+  perguntaAtual = perguntas[atual];
+  caixaPerguntas.textContent = perguntaAtual.enunciado;
+  caixaAlternativas.textContent = "";
+  mostraAlternativas();
+}
+
+function mostraResultado() {
+  caixaPerguntas.textContent = "Em 2049...";
+  textoResultado.textContent = historiaFinal;
+  caixaAlternativas.textContent = "";
+}
+
+let historiaFinal = "";
+
+function respostaSelecionada(opcaoSelecionada) {
+  const afirmacao = opcaoSelecionada.afirmacao;
+  historiaFinal += afirmacao + " ";
+  atual++;
+  mostraPergunta();
+}
